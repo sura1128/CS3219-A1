@@ -18,6 +18,8 @@ public class KWIC {
 		this.repoObj = repoObj;
 	}
 
+	// -------------- INPUT OPERATION -----------------//
+
 	void input() throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		display("Enter the titles separated by comma: ");
@@ -61,6 +63,7 @@ public class KWIC {
 
 	}
 
+	// ------------------SHIFT OPERATION ----------------------//
 	void shift() {
 		String temp, output;
 		LinkedList<String> title = new LinkedList<String>();
@@ -116,6 +119,8 @@ public class KWIC {
 		return t.toString();
 	}
 
+	// -------------------ALPHABET SORTING--------------------//
+
 	void alphabetize() {
 		List<String> tempRearranged = new ArrayList<String>();
 		tempRearranged = repoObj.getRearrangedWords(); // Read alphabetically
@@ -129,7 +134,7 @@ public class KWIC {
 			for (int j = 0; j < temp.length(); j++) {
 				if (temp.charAt(j) == ' ') {
 					output.append(temp.substring(0, j).toUpperCase());
-					output.append(' ');
+					output.append(" ");
 					output.append(temp.substring(j + 1, temp.length()));
 					tempRearranged.set(i, output.toString());
 					break;
@@ -140,6 +145,7 @@ public class KWIC {
 		repoObj.setrearrangedWords(tempRearranged);
 	}
 
+	// -----------------OUTPUT OPERATION---------------------//
 	void output() {
 		List<String> tempRearranged = new ArrayList<String>();
 		tempRearranged = repoObj.getRearrangedWords(); // Read alphabetically
